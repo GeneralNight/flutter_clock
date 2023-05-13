@@ -85,7 +85,7 @@ class MyTimer extends ChangeNotifier {
   void calcTime() {
     _time-=_tick;
     
-    _seconds = (_time / 1000).floor() % 60;
+    _seconds = (_time / 1000).ceil() % 60;
     _minutes = (_time / 60000).floor() % 60;
     _hours = (_time / 3600000).floor();
   }
