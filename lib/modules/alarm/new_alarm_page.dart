@@ -47,6 +47,7 @@ class _NewAlarmPageState extends State<NewAlarmPage> {
                       _handleValueChanged(value,"hour");
                     },
                     infiniteLoop: true,
+                    zeroPad: true,
                     textStyle: const TextStyle(fontSize: 30, color: Colors.black38, fontWeight: FontWeight.w400),
                     selectedTextStyle: const TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
                   ),
@@ -59,6 +60,7 @@ class _NewAlarmPageState extends State<NewAlarmPage> {
                       _handleValueChanged(value,"minutes");
                     },
                     infiniteLoop: true,
+                    zeroPad: true,
                     textStyle: const TextStyle(fontSize: 30, color: Colors.black38, fontWeight: FontWeight.w400),
                     selectedTextStyle: const TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
                   )
