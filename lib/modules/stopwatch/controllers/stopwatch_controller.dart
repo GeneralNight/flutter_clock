@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class MyStopwatch extends ChangeNotifier {
+
+  static MyStopwatch stopwatch = MyStopwatch();
+
   Timer? _timer;
   int _time = 0;
   int _seconds = 0;
@@ -28,7 +31,7 @@ class MyStopwatch extends ChangeNotifier {
     _isRunning = true;
     
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      
+
       calcTime();
       
       notifyListeners();
