@@ -1,5 +1,3 @@
-import 'package:alarm_clock/modules/alarm/alarm_page.dart';
-import 'package:alarm_clock/modules/alarm/new_alarm_page.dart';
 import 'package:alarm_clock/modules/stopwatch/stopwatch_page.dart';
 import 'package:alarm_clock/modules/timer/timer_page.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +16,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple
       ),
       routes: {
-        '/alarm' : (context) => const AlarmPage(),
-        '/alarm-new' : (context) => const NewAlarmPage(),
         '/stopwatch' : (context) => const StopwatchPage(),
         '/timer' : (context) => const TimerPage(),
       },
-      initialRoute: '/alarm',
+      initialRoute: '/stopwatch',
     );
   }
 }

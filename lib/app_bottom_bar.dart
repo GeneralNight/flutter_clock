@@ -9,7 +9,6 @@ class AppBottomBar extends StatefulWidget {
 
 class _AppBottomBarState extends State<AppBottomBar> {
   List<RouteItem> pages = [
-    RouteItem(name: "Alarm", path: "/alarm"),
     RouteItem(name: "Stopwatch", path: "/stopwatch"),
     RouteItem(name: "Timer", path: "/timer"),
   ];
