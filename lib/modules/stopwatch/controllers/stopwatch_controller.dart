@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class MyStopwatch extends ChangeNotifier {
   Timer? _timer;
+  int _time = 0;
   int _seconds = 0;
   int _minutes = 0;
   int _hours = 0;
@@ -19,6 +20,7 @@ class MyStopwatch extends ChangeNotifier {
   bool get isStarted => _isStarted;
 
   void startTimer() {
+    _time = 0;
     _hours = 0;
     _minutes = 0;
     _seconds = 0;
@@ -26,17 +28,9 @@ class MyStopwatch extends ChangeNotifier {
     _isRunning = true;
     
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_seconds < 59) {
-        _seconds++;
-      } else if (_seconds == 59) {
-        _seconds = 0;
-        if (_minutes == 59) {
-          _hours++;
-          _minutes = 0;
-        } else {
-          _minutes++;
-        }
-      }
+      
+      calcTime();
+      
       notifyListeners();
     });    
   }
@@ -57,23 +51,23 @@ class MyStopwatch extends ChangeNotifier {
     _isRunning = true;    
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_seconds < 59) {
-        _seconds++;
-      } else if (_seconds == 59) {
-        _seconds = 0;
-        if (_minutes == 59) {
-          _hours++;
-          _minutes = 0;
-        } else {
-          _minutes++;
-        }
-      }
+      
+      calcTime();
 
       notifyListeners();
     });
   }
 
+  void calcTime() {
+    _time++;
+      
+    _seconds = _time % 60;
+    _minutes = (_time / 60).floor() % 60;
+    _hours = (_time / 3600).floor();
+  }
+
   void reset() {
+    _time = 0;
     _seconds = 0;
     _hours = 0;
     _minutes = 0;
